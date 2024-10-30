@@ -1,23 +1,26 @@
-import Card from "../../components/card/Card"
-import Filter from "../../components/filter/Filter"
 import { listData } from "../../lib/dummyData"
-import { ListItem } from "../../lib/types"
 import "./list.scss"
+import Filter from "../../components/filter/Filter"
+import Card from "../../components/card/Card"
+import Map from "../../components/map/Map"
+import { ListItem } from "../../lib/types"
 
-const List = () => {
+function ListPage() {
   const data: ListItem[] = listData
-  return (
-    <div className="listPage">
-      <div className="listContainer">
-        <div className="wrapper">
-          <Filter />
-          {data.map((item: ListItem) => (
+
+  return <div className="listPage">
+    <div className="listContainer">
+      <div className="wrapper">
+        <Filter />
+        {data.map((item: ListItem) => (
             <Card key={item.id} item={item} />
           ))}
-        </div>
       </div>
     </div>
-  )
+    <div className="mapContainer">
+      <Map items={data} />
+    </div>
+  </div>
 }
 
-export default List
+export default ListPage
