@@ -1,14 +1,8 @@
 import { useState } from "react"
 import "./searchBar.scss"
+import { QueryState } from "../../lib/types"
 
 const types: string[] = ["buy", "rent"]
-
-type QueryState = {
-  type: string
-  location: string
-  minPrice: number
-  maxPrice: number
-}
 
 const SearchBar = () => {
   const [query, setQuery] = useState<QueryState>({
